@@ -58,8 +58,8 @@ int pack_u64(pack* p, uint64_t v) {
 
 uint8_t unpack_u8(pack* p) {
   uint8_t v = 0;
-  if (!p) { return -1; } 
-  if ( (p->rdx + 1) >= p->capacity) { return -2; }
+  if (!p) { return 0; } 
+  if ( (p->rdx + 1) >= p->capacity) { return 0; }
   v = p->buffer[p->rdx++];
   return v;
 }
@@ -67,8 +67,8 @@ uint8_t unpack_u8(pack* p) {
 uint16_t unpack_u16(pack* p) {
   uint16_t v = 0;
   uint8_t* r = (uint8_t*) &v;
-  if (!p) { return -1; } 
-  if ( (p->rdx + 2) >= p->capacity) { return -2; }
+  if (!p) { return 0; } 
+  if ( (p->rdx + 2) >= p->capacity) { return 0; }
   r[0] = p->buffer[p->rdx + 1];
   r[1] = p->buffer[p->rdx + 0];
   p->rdx += 2;
@@ -78,8 +78,8 @@ uint16_t unpack_u16(pack* p) {
 uint32_t unpack_u32(pack* p) {
   uint32_t v = 0;
   uint8_t* r = (uint8_t*) &v;
-  if (!p) { return -1; } 
-  if ( (p->rdx + 4) >= p->capacity) { return -2; }
+  if (!p) { return 0; } 
+  if ( (p->rdx + 4) >= p->capacity) { return 0; }
   r[0] = p->buffer[p->rdx + 3];
   r[1] = p->buffer[p->rdx + 2];
   r[2] = p->buffer[p->rdx + 1];
@@ -91,8 +91,8 @@ uint32_t unpack_u32(pack* p) {
 uint64_t unpack_u64(pack* p) {
   uint64_t v = 0;
   uint8_t* r = (uint8_t*) &v;
-  if (!p) { return -1; } 
-  if ( (p->rdx + 8) >= p->capacity) { return -2; }
+  if (!p) { return 0; } 
+  if ( (p->rdx + 8) >= p->capacity) { return 0; }
   r[0] = p->buffer[p->rdx + 7];
   r[1] = p->buffer[p->rdx + 6];
   r[2] = p->buffer[p->rdx + 5];
